@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh"> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云域1892 - YUNYU Heritage Coffee</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="cursor.js"></script>
+
+    <!-- 在这里添加咖啡豆图片预加载 -->
+    <link rel="preload" href="./images/coffee-bean.jpg/咖啡豆1.jpg" as="image">
+    <link rel="preload" href="./images/coffee-bean.jpg/咖啡豆2.jpg" as="image">
+    <link rel="preload" href="./images/coffee-bean.jpg/咖啡豆3.jpg" as="image">
+    
+    <!-- 使用 importmap -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    
+    <!-- 其他依赖 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- 导航栏 -->
+    <nav class="top-nav">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="云域1892" class="logo-image">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">首页 <span>HOME</span></a></li>
+            <li><a href="#heritage">传承 <span>HERITAGE</span></a></li>
+            <li><a href="#origin">产地 <span>ORIGIN</span></a></li>
+            <li><a href="#products">臻选 <span>PRODUCTS</span></a></li>
+            <li><a href="#about">品牌 <span>ABOUT</span></a></li>
+        </ul>
+    </nav>
+
+    <div class="main-container">
+        <!-- 垂直标语 -->
+        <div class="vertical-slogan">
+            <div class="slogan-text">匠心传承</div>
+            <div class="slogan-year">SINCE 1892</div>
+            <div class="slogan-sub">130年云南咖啡文化的馈赠</div>
+        </div>
+
+        <main>
+            <!-- 首页部分 -->
+            <section id="home" class="hero-section">
+                <div id="model-container">
+                    <div class="loading-text">
+                        <span class="loading-message">正在加载3D模型...</span>
+                        <div class="loading-progress"></div>
+                    </div>
+                </div>
+                <div class="hero-content">
+                    <h1 class="maobi-font">云域1892</h1>
+                    <p class="en-text">YUNYU HERITAGE COFFEE</p>
+                    <p>传承百年匠心 · 探寻咖啡真味</p>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="mouse"></div>
+                    <span>SCROLL DOWN</span>
+                </div>
+            </section>
+
+
+      <!-- 传承部分 -->
+<section id="heritage" class="content-section">
+    <div class="section-inner" data-aos="fade-up">
+        <h2>传承 · 匠心 <span class="en-text">HERITAGE</span></h2>
+        <div class="text-content">
+            <p>在云南这片神奇的土地上，1892年，一粒来自远方的咖啡种子，在大理宾川的山谷中生根发芽。这不仅是一个关于咖啡的故事，更是一段跨越130余年的文化传奇。</p>
+            <p class="en-text">Since 1892, when the first coffee seed took root in Binchuan Valley of Dali, Yunnan, we've been crafting a legacy that spans over 130 years.</p>
+        </div>
+
+        <!-- 照片墙 -->
+        <div class="heritage-photos" data-aos="fade-up" data-aos-delay="200">
+            <div class="photo-wall">
+                <div class="photo-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/heritage/1.jpg" alt="咖啡种植">
+                    <div class="photo-overlay">
+                        <span class="photo-text">咖啡种植</span>
+                    </div>
+                </div>
+                <div class="photo-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/heritage/2.jpg" alt="手工采摘">
+                    <div class="photo-overlay">
+                        <span class="photo-text">手工采摘</span>
+                    </div>
+                </div>
+                <div class="photo-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/heritage/3.jpg" alt="精心挑选">
+                    <div class="photo-overlay">
+                        <span class="photo-text">精心挑选</span>
+                    </div>
+                </div>
+                <div class="photo-item" data-aos="fade-up" data-aos-delay="400">
+                    <img src="images/heritage/4.jpg" alt="晾晒工艺">
+                    <div class="photo-overlay">
+                        <span class="photo-text">晾晒工艺</span>
+                    </div>
+                </div>
+            
+                
+        <!-- 照片模态框 -->
+        <div class="photo-modal">
+            <span class="close-modal">&times;</span>
+            <img class="modal-content" src="" alt="放大图片">
+        </div>
+</section>
+                                             <!-- 产地部分 -->
+                                <section id="origin" class="content-section dark">
+                                    <div class="section-inner" data-aos="fade-up">
+                                        <h2>产地 · 甄选 <span class="en-text">ORIGIN</span></h2>
+                                        <div class="china-map-container" data-aos="fade-up">
+                                            <div id="china-map"></div>
+                                        </div>
+                                        <div class="origin-grid">
+                                            <div class="origin-card" data-aos="fade-up">
+                                                <h3>云南大理</h3>
+                                                <p>海拔1800米以上的高山咖啡庄园</p>
+                                                <p>得天独厚的地理环境，造就了独特的咖啡风味</p>
+                                                <span class="en-text">DALI, YUNNAN</span>
+                                            </div>
+                                            <div class="origin-card" data-aos="fade-up" data-aos-delay="200">
+                                                <h3>宾川产区</h3>
+                                                <p>云南最早种植咖啡的区域之一</p>
+                                                <p>百年咖啡种植历史，传承匠心工艺</p>
+                                                <span class="en-text">BINCHUAN REGION</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                    
+                                <!-- 产品部分 -->
+                                <section id="products" class="content-section">
+                                    <div class="section-inner" data-aos="fade-up">
+                                        <h2>匠艺 · 极致 <span class="en-text">PRODUCTS</span></h2>
+                                        
+                                        <div class="products-showcase">
+                                            <!-- 产品滑动容器 -->
+                                            <div class="products-slider">
+                                                <!-- 产品1 -->
+                                                <div class="product-slide">
+                                                    <div class="product-image" data-aos="fade-up">
+                                                        <img src="images/products/product1.png" alt="云域1892精品咖啡">
+                                                    </div>
+                                                    <div class="product-info" data-aos="fade-left" data-aos-delay="200">
+                                                        <h3>云域1892精品咖啡</h3>
+                                                        <p class="en-text">YUNYU HERITAGE COFFEE</p>
+                                                        <div class="product-description">
+                                                            <p>采用云南高海拔咖啡豆精心烘焙</p>
+                                                            <p>醇厚浓郁，回甘持久</p>
+                                                        </div>
+                                                        <div class="product-price">¥ 168</div>
+                                                    </div>
+                                                </div>                            <!-- 产品2 -->
+                                                <div class="product-slide">
+                                                    <div class="product-image" data-aos="fade-up">
+                                                        <img src="images/products/product2.png" alt="云域1892特选咖啡">
+                                                    </div>
+                                                    <div class="product-info" data-aos="fade-left" data-aos-delay="200">
+                                                        <h3>云域1892特选咖啡</h3>
+                                                        <p class="en-text">YUNYU SPECIAL SELECTION</p>
+                                                        <div class="product-description">
+                                                            <p>精选宾川产区优质咖啡豆</p>
+                                                            <p>香气馥郁，口感绵长</p>
+                                                        </div>
+                                                        <div class="product-price">¥ 128</div>
+                                                    </div>
+                                                </div>
+                    
+                                                <!-- 产品3 -->
+                                                <div class="product-slide">
+                                                    <div class="product-image" data-aos="fade-up">
+                                                        <img src="images/products/product3.png" alt="云域1892典藏咖啡">
+                                                    </div>
+                                                    <div class="product-info" data-aos="fade-left" data-aos-delay="200">
+                                                        <h3>云域1892典藏咖啡套装</h3>
+                                                        <p class="en-text">YUNYU COLLECTION</p>
+                                                        <div class="product-description">
+                                                            <p>传统工艺与现代科技的完美结合</p>
+                                                            <p>层次丰富，韵味悠长</p>
+                                                        </div>
+                                                        <div class="product-price">¥ 588</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                    
+                                            <!-- 滑动指示器 -->
+                                            <div class="slider-nav">
+                                                <button class="prev-slide">&lt;</button>
+                                                <div class="slide-dots"></div>
+                                                <button class="next-slide">&gt;</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                    
+                               <!-- 品牌介绍部分 - 只保留这一个版本 -->
+<section id="about" class="about-section">
+    <div class="coffee-beans-container">
+        <!-- 咖啡豆背景会通过 JS 动态生成 -->
+    </div>
+
+    <div class="about-content">
+        <h2 class="about-title">ABOUT US</h2>
+        <div class="about-subtitle">品牌故事</div>
+        
+        <!-- 故事容器 -->
+        <div class="stories-container">
+            <div class="story-grid">
+                <!-- 故事1：时间的味道 -->
+                <div class="story-card" data-story="1">
+                    <img src="images/stories/story1.jpg" alt="时间的味道">
+                    <div class="story-popup">
+                        <h3>时间的味道</h3>
+                        <p>在云南这片神奇的土地上，1892年，第一颗咖啡种子在这里生根发芽。时光流转，我们传承着先辈的智慧，让每一粒咖啡豆都沉淀着岁月的芬芳。</p>
+                    </div>
+                </div>
+        
+                <!-- 故事2：山谷的回响 -->
+                <div class="story-card" data-story="2">
+                    <img src="images/stories/story2.jpg" alt="山谷的回响">
+                    <div class="story-popup">
+                        <h3>山谷的回响</h3>
+                        <p>在云南的群山之间，咖啡树与原始森林共生。清晨的露珠、午后的阳光、夜晚的月色，都在诉说着这片土地的故事。</p>
+                    </div>
+                </div>
+        
+                <!-- 故事3：匠人的温度 -->
+                <div class="story-card" data-story="3">
+                    <img src="images/stories/story3.jpg" alt="匠人的温度">
+                    <div class="story-popup">
+                        <h3>匠人的温度</h3>
+                        <p>每一位咖啡匠人都怀着对完美的追求，从采摘到烘焙，用心浇灌每一颗咖啡豆，让匠心与温度在杯中交融。</p>
+                    </div>
+                </div>
+        
+                <!-- 故事4：一杯咖啡的对话 -->
+                <div class="story-card" data-story="4">
+                    <img src="images/stories/story4.jpg" alt="一杯咖啡的对话">
+                    <div class="story-popup">
+                        <h3>一杯咖啡的对话</h3>
+                        <p>每一杯云域咖啡都是一场与时光的对话，是传统与现代的碰撞，是东方韵味与西方品质的完美融合。</p>
+                    </div>
+                </div>
+        
+                <!-- 故事5：东方美学的融合 -->
+                <div class="story-card" data-story="5">
+                    <img src="images/stories/story5.jpg" alt="东方美学的融合">
+                    <div class="story-popup">
+                        <h3>东方美学的融合</h3>
+                        <p>我们将东方的优雅美学融入每一个细节，从包装设计到冲泡仪式，让咖啡文化与中国传统完美交融。</p>
+                    </div>
+                </div>
+        
+                <!-- 故事6：中国咖啡的新生 -->
+                <div class="story-card" data-story="6">
+                    <img src="images/stories/story6.jpg" alt="中国咖啡的新生">
+                    <div class="story-popup">
+                        <h3>中国咖啡的新生</h3>
+                        <p>云域1892不仅是一个品牌，更是中国咖啡文化的新篇章。我们致力于让世界品味中国咖啡的独特魅力。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 故事弹窗 -->
+        <div id="storyModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2 class="modal-title"></h2>
+                <p class="modal-text"></p>
+            </div>
+        </div>
+    </div>
+</section>
+                    
+                            <!-- 引入主要的 JavaScript 文件 -->
+    <script type="module" src="js/main.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="path/to/cursor.js"></script>
+</body>
+</html>
